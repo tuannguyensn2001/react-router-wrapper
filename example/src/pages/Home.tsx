@@ -1,11 +1,18 @@
 import React from 'react'
-import { Link } from 'react-router-wrapper'
+import { Link, useRouter } from 'react-router-wrapper'
 
 function Home() {
+  const router = useRouter()
+
+  const handleClick = () => {
+    router.push({ name: 'detail', params: { id: 1 } })
+  }
+
   return (
     <div>
       <div>
-        <Link to={'/login'}>abc</Link>
+        <Link to={{ name: 'login' }}>abc</Link>
+        <button onClick={handleClick}>CLick navigate</button>
       </div>
     </div>
   )
